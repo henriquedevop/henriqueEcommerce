@@ -3,9 +3,13 @@ import { BiCart } from "react-icons/bi"
 import { HiBars3 } from "react-icons/hi2"
 import { Link } from "react-router"
 
+import { useContext } from "react"
+import { CartContext } from "../../contexts/cardContext"
+
 export function Header() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { cartAmount } = useContext(CartContext)
 
     return (
         <header 
@@ -47,10 +51,12 @@ export function Header() {
             </div>
 
             <Link  className="relative"  to="/cart">
-                <BiCart size={22}/>
+                <BiCart size={24}/>
+                {cartAmount > 0 && (
                 <span
                 className="absolute -right-3 -top-2 bg-blue-500 text-white px-2 w-5 h-5 flex items-center justify-center text-xs rounded-full"
                 >2</span>
+                )}
             </Link>
         </header>
     )
