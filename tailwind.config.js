@@ -8,6 +8,10 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif']
+      },
+      backgroundImage: {
+        'hero-bg-mobile': "url('/src/assets/bgmobile.png')",
+        'hero-bg-desktop': "url('/src/assets/bgdesktop.png')",
       }
     },
   },
