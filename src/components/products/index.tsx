@@ -2,6 +2,7 @@ import { BiCart } from "react-icons/bi"
 import { useEffect, useState, useContext } from "react"
 import { api } from "../../services/api"
 import { CartContext } from "../../contexts/cardContext";
+import toast from "react-hot-toast";
 
 export interface ProductsProps {
     id: number;
@@ -27,6 +28,7 @@ export function Products() {
 
     function handleAddCartItem(item:ProductsProps) {
         addItemCart(item)
+        toast.success("Produto adicionado")
     }
 
     return (
