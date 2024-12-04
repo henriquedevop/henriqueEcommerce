@@ -8,7 +8,9 @@ export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
-        <header className="bg-none w-full h-14 flex justify-between items-center px-8">
+        <header 
+        style={{backgroundColor: "##FFC95B"}}
+        className="w-full h-14 flex justify-between items-center px-8">
 
             <div className="hidden sm:flex gap-5">
             <Link to="/" className="text-black">Henrique Ecommerce</Link>
@@ -47,7 +49,7 @@ export function Header() {
             <Link  className="relative"  to="/cart">
                 <BiCart size={22}/>
                 <span
-                className="absolute -right-3 -top-2 bg-yellow-400 px-2 w-5 h-5 flex items-center justify-center text-xs rounded-full"
+                className="absolute -right-3 -top-2 bg-black text-white px-2 w-5 h-5 flex items-center justify-center text-xs rounded-full"
                 >2</span>
             </Link>
         </header>
