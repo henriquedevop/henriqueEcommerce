@@ -1,8 +1,9 @@
 import { BiCart } from "react-icons/bi"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { api } from "../../services/api"
+import { CartContext } from "../../contexts/cardContext";
 
-interface ProductsProps {
+export interface ProductsProps {
     id: number;
     title: string;
     description: string;
@@ -12,6 +13,7 @@ interface ProductsProps {
 
 export function Products() {
 
+    const { addItemCart } = useContext(CartContext)
     const [products, setProducts] = useState<ProductsProps[]>([])
 
     useEffect(() => {
@@ -22,6 +24,10 @@ export function Products() {
 
         getData()
     },[])
+
+    function handleAddCartItem(item:ProductsProps) {
+        addItemCart(item)
+    }
 
     return (
         <div>
@@ -44,7 +50,9 @@ export function Products() {
                                     style: "currency",
                                     currency: "BRL"
                                 })}</strong>
-                                <button className="bg-zinc-900 p-1 rounded">
+                                <button 
+                                onClick={() => handleAddCartItem(item)}
+                                className="bg-zinc-900 p-1 rounded">
                                     <BiCart size={20} color="#fff"/>
                                 </button>
                             </div>

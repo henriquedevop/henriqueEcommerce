@@ -1,8 +1,11 @@
 import { createContext, ReactNode, useState } from "react";
 
+import { ProductsProps } from "../components/products";
+
 interface CartContextData {
     cart: CartProps[];
     cartAmount: number;
+    addItemCart: (newItem: ProductsProps) => void
 }
 
 interface CartProps {
@@ -24,9 +27,38 @@ export const CartContext = createContext({} as CartContextData)
 function CartProvider({children}: CartProviderProps) {
 
     const [cart, setCart] = useState<CartProps[]>([])
+    
+    function addItemCart(newItem: ProductsProps) {
+        const indexItem = cart.findIndex(item => item.id === newItem.id)
+
+        if(indexItem !== -1) {
+            let cartList = cart;
+
+            cartList[indexItem].amount = cartList[indexItem].amount + 1
+            cartList[indexItem].total = cartList[indexItem].amount * cartList[indexItem].price
+
+            setCart(cartList)
+            return
+        }
+
+        let data = {
+            ...newItem,
+            amount: 1,
+            total: newItem.price
+        }
+
+        setCart(products => [...products, data])
+        console.log(cart)
+
+    }
 
     return (
-        <CartContext.Provider value={{cart, cartAmount: cart.length}}>
+        <CartContext.Provider 
+        value={{
+            cart, 
+            cartAmount: cart.length,
+            addItemCart
+        }}>
             {children}
         </CartContext.Provider>
     )

@@ -13,7 +13,7 @@ export function Header() {
 
     return (
         <header 
-        className="w-full h-14 flex justify-between items-center px-8 bg-black text-white">
+        className="w-full h-14 flex justify-between items-center sticky top-6 px-8 bg-black text-white">
 
             <div className="hidden sm:flex gap-5">
             <Link to="/" className="text-white">Henrique Ecommerce</Link>
@@ -55,7 +55,7 @@ export function Header() {
                 {cartAmount > 0 && (
                 <span
                 className="absolute -right-3 -top-2 bg-blue-500 text-white px-2 w-5 h-5 flex items-center justify-center text-xs rounded-full"
-                >2</span>
+                >{cartAmount}</span>
                 )}
             </Link>
         </header>
