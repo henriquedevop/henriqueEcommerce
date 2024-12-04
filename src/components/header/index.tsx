@@ -10,7 +10,16 @@ export function Header() {
     return (
         <header className="bg-none w-full h-14 flex justify-between items-center px-8">
 
-            <div className={`${isMenuOpen ? "flex" : "hidden"}
+            <div className="hidden sm:flex gap-5">
+            <Link to="/" className="text-black">Henrique Ecommerce</Link>
+            </div>
+
+            <nav className="hidden sm:flex gap-10">
+            <Link to="/">Home</Link>
+            <Link to="/cart">Carrinho</Link>
+            </nav>
+            
+            <div className={`sm:hidden ${isMenuOpen ? "flex" : "hidden"}
             w-1/2 h-1/2 bg-black/10 rounded-lg backdrop-blur-sm border border-white absolute top-10 left-0 mx-8
             `}>
                 <nav className="flex flex-col gap-5 w-full p-8 p">
@@ -23,7 +32,7 @@ export function Header() {
                 </nav>
             </div>
 
-            <div className="flex items-center">
+            <div className="sm:hidden flex items-center">
 
                 <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -31,7 +40,7 @@ export function Header() {
                 <HiBars3 size={22}/>
                 </button>
 
-                <h3 className="text-black">Henrique Ecommerce</h3>
+                <Link to="/" className="text-black">Henrique Ecommerce</Link>
 
             </div>
 
