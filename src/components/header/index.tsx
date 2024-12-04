@@ -16,13 +16,14 @@ export function Header() {
             <Link to="/" className="text-black">Henrique Ecommerce</Link>
             </div>
 
-            <nav className="hidden sm:flex gap-10">
+            <nav className="hidden sm:flex gap-10 mr-40">
             <Link to="/">Home</Link>
             <Link to="/cart">Carrinho</Link>
+            <Link to="/cart">Produtos</Link>
             </nav>
             
             <div className={`sm:hidden ${isMenuOpen ? "flex" : "hidden"}
-            w-1/2 h-1/2 bg-black/10 rounded-lg backdrop-blur-sm border border-white absolute top-10 left-0 mx-8
+            w-1/2 h-1/2 bg-black/10 rounded-lg backdrop-blur-sm border border-white absolute top-20 left-0 mx-8
             `}>
                 <nav className="flex flex-col gap-5 w-full p-8 p">
                     <Link 
