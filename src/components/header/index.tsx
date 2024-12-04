@@ -9,11 +9,10 @@ export function Header() {
 
     return (
         <header 
-        style={{backgroundColor: "##FFC95B"}}
-        className="w-full h-14 flex justify-between items-center px-8">
+        className="w-full h-14 flex justify-between items-center px-8 bg-black text-white">
 
             <div className="hidden sm:flex gap-5">
-            <Link to="/" className="text-black">Henrique Ecommerce</Link>
+            <Link to="/" className="text-white">Henrique Ecommerce</Link>
             </div>
 
             <nav className="hidden sm:flex gap-10 mr-40">
@@ -23,15 +22,15 @@ export function Header() {
             </nav>
             
             <div className={`sm:hidden ${isMenuOpen ? "flex" : "hidden"}
-            w-1/2 h-1/2 bg-black/10 rounded-lg backdrop-blur-sm border border-white absolute top-20 left-0 mx-8
+            w-1/2 h-1/2 bg-white/20 rounded-lg backdrop-blur-sm border border-white absolute top-20 left-0 mx-8
             `}>
-                <nav className="flex flex-col gap-5 w-full p-8 p">
+                <nav className="flex flex-col gap-5 w-full p-8 p text-white">
                     <Link 
                     onClick={() => setIsMenuOpen(false)}
-                    className="bg-black/10 rounded-md text-center shadow-md" to="/">Home</Link>
+                    className="bg-black/40 rounded-md text-center shadow-md" to="/">Home</Link>
                     <Link
                     onClick={() => setIsMenuOpen(false)}
-                    className="bg-black/10 rounded-md text-center shadow-md" to="/cart">Carrinho</Link>
+                    className="bg-black/40 rounded-md text-center shadow-md" to="/cart">Carrinho</Link>
                 </nav>
             </div>
 
@@ -50,7 +49,7 @@ export function Header() {
             <Link  className="relative"  to="/cart">
                 <BiCart size={22}/>
                 <span
-                className="absolute -right-3 -top-2 bg-black text-white px-2 w-5 h-5 flex items-center justify-center text-xs rounded-full"
+                className="absolute -right-3 -top-2 bg-blue-500 text-white px-2 w-5 h-5 flex items-center justify-center text-xs rounded-full"
                 >2</span>
             </Link>
         </header>
