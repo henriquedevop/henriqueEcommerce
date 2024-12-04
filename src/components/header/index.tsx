@@ -44,8 +44,11 @@ export function Header() {
 
             </div>
 
-            <Link to="/cart">
+            <Link  className="relative"  to="/cart">
                 <BiCart size={22}/>
+                <span
+                className="absolute -right-3 -top-2 bg-yellow-400 px-2 w-5 h-5 flex items-center justify-center text-xs rounded-full"
+                >2</span>
             </Link>
         </header>
     )
